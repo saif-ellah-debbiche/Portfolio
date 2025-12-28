@@ -1,0 +1,46 @@
+<section class="blogs-section">
+  <div class="blogs-container">
+    <div class="section-header">
+      <h2 class="section-title">Latest Blog Posts</h2>
+      <p class="section-subtitle">
+        Insights, tutorials, and thoughts on web development
+      </p>
+    </div>
+
+    <div class="blogs-grid">
+      <article
+        *ngFor="let blog of blogs"
+        class="blog-card"
+        [routerLink]="['/blogs', blog.title]"
+      >
+        <div class="blog-image-wrapper">
+          <img
+            [src]="blog.defaultImageLink"
+            [alt]="blog.title"
+            class="blog-image"
+            loading="lazy"
+          />
+          <div class="blog-overlay"></div>
+        </div>
+
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-date">{{ formatDate(blog.date) }}</span>
+          </div>
+
+          <h3 class="blog-title">{{ blog.title }}</h3>
+
+          <p class="blog-summary">{{ blog.summary }}</p>
+
+          <div class="blog-footer">
+            <span class="read-more">Read More →</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="blogs.length === 0" class="no-blogs">
+      <p>No blog posts available yet. Check back soon!</p>
+    </div>
+  </div>
+</section>

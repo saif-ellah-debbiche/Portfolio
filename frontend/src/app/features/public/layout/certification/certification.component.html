@@ -1,0 +1,63 @@
+<section class="certifications-section" id="certificates">
+  <div class="certifications-container">
+    <div class="section-header">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-subtitle">Professional certifications and achievements</p>
+    </div>
+
+    <div class="certifications-grid">
+      @for (cert of sortedCertifications(); track cert.title) {
+        <div class="certification-card" [class.in-progress]="cert.status === 'in-progress'">
+          <div class="cert-header">
+            <div class="provider-logo">
+              <img [src]="cert.providerLogo" [alt]="cert.providerName + ' logo'" />
+            </div>
+            <div class="cert-status">
+              @if (cert.status === 'completed') {
+                <span class="status-badge completed">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Completed
+                </span>
+              } @else {
+                <span class="status-badge in-progress">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 4V8L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  In Progress
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="cert-content">
+            <h3 class="cert-title">{{ cert.title }}</h3>
+            <p class="cert-provider">{{ cert.providerName }}</p>
+            <p class="cert-date">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 6H14" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 1V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M11 1V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              {{ formatDate(cert.date) }}
+            </p>
+            <p class="cert-summary">{{ cert.summary }}</p>
+            
+            @if (cert.credentialUrl && cert.status === 'completed') {
+              <a [href]="cert.credentialUrl" target="_blank" rel="noopener noreferrer" class="verify-link">
+                Verify Credential
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3H3V13H13V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M8 8L13 3M13 3H9M13 3V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
