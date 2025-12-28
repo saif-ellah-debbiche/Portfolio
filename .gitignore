@@ -1,0 +1,88 @@
+############################
+# OS & Editor
+############################
+.DS_Store
+Thumbs.db
+
+
+.idea/
+*.iml
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Frontend (Angular)
+############################
+frontend/.vscode/
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.cache/
+frontend/.npm/
+frontend/.env
+
+############################
+# Backend (Spring Boot / Java)
+############################
+backend/target/
+backend/bin/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/src/main/resources/application.properties
+backend/src/main/resources/application-*.properties
+
+############################
+# Java
+############################
+*.class
+*.jar
+*.war
+*.ear
+
+############################
+# Maven / Gradle
+############################
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/pom.xml.versionsBackup
+**/pom.xml.next
+**/release.properties
+**/.mvn/timing.properties
+
+############################
+# Gradle
+############################
+**/.gradle/
+**/build/
+
+############################
+# Environment & Secrets
+############################
+.env
+*.key
+*.pem
+*.p12
+*.jks
+
+############################
+# Docker
+############################
+docker-compose.override.yml
+
+############################
+# Coverage & Reports
+############################
+coverage/
+**/surefire-reports/
+**/failsafe-reports/
+
+############################
+# Temporary Files
+############################
+tmp/
+temp/
