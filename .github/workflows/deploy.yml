@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust to 'master' if needed
+      - main
 
 permissions:
   contents: write
@@ -32,19 +32,17 @@ jobs:
         run: |
           cd frontend
           
-          # Create environment file if it is ignored by git
-          mkdir -p src/environments
-          echo "export const environment = { production: true };" > src/environments/environment.prod.ts
-          
-          # Build the app. 
-          # --base-href ensures the app knows it is in a subfolder on GitHub servers
+          # 1. Build de l'application
+          # On utilise les paramètres de ton angular.json
           npx ng build --configuration production --base-href /${{ github.event.repository.name }}/
           
-          # Prepare 404.html to support Angular deep-linking
-          cp dist/*/index.html dist/*/404.html
+          # 2. Gestion du routage GitHub Pages (404.html)
+          # Le chemin exact basé sur ton angular.json est dist/portfolio-frontend/browser
+          cp dist/portfolio-frontend/browser/index.html dist/portfolio-frontend/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist  # Path where Angular puts the built files
+          # On pointe vers le dossier 'browser' généré par le nouveau builder Angular
+          folder: frontend/dist/portfolio-frontend/browser
           branch: gh-pages
