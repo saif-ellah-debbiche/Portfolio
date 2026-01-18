@@ -1,0 +1,26 @@
+ <!-- 1️⃣ Lucide icon if name exists -->
+    <lucide-icon
+      *ngIf="icon?.name; else imageOrFallback"
+      [name]="icon!.name!"
+      [size]="size">
+    </lucide-icon>
+
+    <!-- 2️⃣ Image icon (dark/light) -->
+    <ng-template #imageOrFallback>
+      <img
+        *ngIf="resolvedImage() as imgSrc; else fallback"
+        [src]="imgSrc"
+        [alt]="icon?.alt ?? 'icon'"
+        class="app-icon-img"
+        [style.width.px]="size"
+        [style.height.px]="size"
+        />
+
+      <!-- 3️⃣ Final fallback -->
+      <ng-template #fallback>
+        <lucide-icon
+          [name]="defaultIcon"
+          [size]="size">
+        </lucide-icon>
+      </ng-template>
+    </ng-template>

@@ -54,7 +54,8 @@ public class AuthenticationController {
     @PostMapping("/refresh-token")
     public void refreshToken(
             HttpServletRequest request,
-            HttpServletResponse response
+            HttpServletResponse response,
+             @CookieValue("refreshToken") String refreshToken
     ) throws IOException {
         authenticationService.refreshToken(request, response);
     }

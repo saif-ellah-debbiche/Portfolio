@@ -29,11 +29,11 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/test/**").permitAll()
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow access to /test/** without authentication
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/error/**").permitAll()// Allow access to /test/** without authentication
+                        .requestMatchers("/error/**").permitAll()
                         .requestMatchers("/clients/**").permitAll()
-                        .requestMatchers("/owner/**").hasRole("ADMIN") // Restrict /config/** to users with the ADMIN role
+                        .requestMatchers("/owner/**").hasRole("ADMIN") 
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .logout((logout) ->

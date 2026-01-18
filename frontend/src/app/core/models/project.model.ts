@@ -5,8 +5,11 @@ export interface Project{
     title:string;
     images:string[];
     summary:string;
-    date:Date;
+    startDate: Date;
+    endDate?: Date;
+    duration:string;        
     technologies:string[];
-    duration:string;
-    blog:Blog
+    liveUrl?:string;
+    githubUrl?:string;
+    blog?:Blog
 }

@@ -1,6 +1,8 @@
+import { DynamicIcon } from "./dynamic-icon.module";
+
 export interface Contact{
     name:string;
-    darkLogo:string;
-    lightLogo:string;
-    redirectLink:string
+    icon:DynamicIcon
+    redirectLink:string;
+
 }

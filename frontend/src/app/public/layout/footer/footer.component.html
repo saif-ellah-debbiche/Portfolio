@@ -1,0 +1,34 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- Footer Links -->
+      <div class="footer-section">
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section">
+        <div class="social-links">
+    @for (social of socialLinks; track social.name) {
+     <a
+      [href]="social.href"
+      [title]="social.name"
+      class="social-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path [attr.d]="social.svgPath"></path>
+      </svg>
+    </a>
+  }
+</div>
+
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; {{ currentYear }} Saif Ellah Debbiche. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
