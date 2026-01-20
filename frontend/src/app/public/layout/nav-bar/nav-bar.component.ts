@@ -17,7 +17,7 @@ certifications=SITE_DATA.certifications;
     { label: "Education", href: "#education" },
     { label: "Blogs", href: "blogs" },
   ]
-  resumePath = '/assets/Saif_Ellah_Debbiche_resume.pdf';
+  resumePath = 'assets/Saif_Ellah_Debbiche_resume.pdf';
   constructor(public themeService: ThemeService) {
     if(this.certifications.length>0){
       this.navItems.splice(3, 0,{ label: "Certificates", href: "#certificates" });
