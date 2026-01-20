@@ -68,6 +68,8 @@ export const SITE_DATA : SiteData={
       "A comprehensive freelance management platform featuring a dedicated client portal and an administrative back-office. Developed as a monorepo with high-performance routing and automated deployment.",
     technologies: ["Spring Boot", "Angular", "GitHub Actions", "JWT", "PostgreSQL"],
     duration: "4 months",
+      githubUrl:'https://github.com/saif-ellah-debbiche/Accompagnement_France',
+      liveUrl:"https://saif-ellah-debbiche.github.io/Accompagnement_France/client"
   },
         {
       id: 2,
@@ -83,6 +85,7 @@ export const SITE_DATA : SiteData={
         "A secure corporate application for budget tracking. Features advanced security protocols including digital certificate authentication (.p12) and TOTP Multi-Factor Authentication.",
     technologies: ["Spring Boot", "Angular", "Kubernetes", "GitLab CI/CD", "Docker"],
       duration:"6 months",
+    
       
     },
     {
