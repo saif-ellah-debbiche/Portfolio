@@ -9,7 +9,7 @@ export class ThemeService {
 
   constructor() {
     // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem("theme")
+    const savedTheme = localStorage.getItem("theme")|| "dark";
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
     this.isDarkMode.set(savedTheme === "dark" || (!savedTheme && prefersDark))
